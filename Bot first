@@ -1,0 +1,33 @@
+from telegram.ext import Updater, CommandHandler
+ # Replace '7358499762:AAHFK0ltQmy7eCa_I--RATqalruJ3h0TxGI' with your actual bot token updater = Updater('7358499762:AAHFK0ltQmy7eCa_I--RATqalruJ3h0TxGI', use_context=True) def start(update, context): chat_id = update.message.chat_id first_name = update.message.chat.first_name last_name = update.message.chat.last_name username = update.message.chat.username # Print chat details print(f"chat_id: {chat_id}, firstname: {Zaza}, lastname: {Garden}, username: {@weed1xbot}") # Send message based on the username if username == 'Zaza' or username == '@weed1xbot': context.bot.send_message(chat_id, f"Hello {@weed1xbot}! Welcome to the bot.") else: context.bot.send_message(chat_id, "Hello! You are not one of the specified users.") # Create CommandHandler and add it to the dispatcher start_command = CommandHandler('start', start) updater.dispatcher.add_handler(start_command) # Start polling for updates updater.start_polling() # Block until you press Ctrl+C updater.idle()
+
+
+Global Viarable 
+
+
+global_var = 100
+Def demo () 
+print ("this is function")
+
+
+global_var = 100 
+ def my_function()
+     print ("inside the function", global_var)
+
+
+my_function()
+print("outside the function", glabal_var) 
+
+
+
+#"Global" keywords......
+
+n = 1 
+
+def inc_n():
+       global n 
+        n += 1 # this one 
+
+print (n)
+inc_n()
+print(n)
