@@ -1,0 +1,159 @@
+import os
+import subprocess
+from datetime import datetime
+import requests
+
+# GitHub Configuration
+REPO_DIR = os.getenv('REPO_DIR', '/path/to/your/repo') # Path to your GitHub repository
+COMMIT_MESSAGE = 'Automated update: ' + datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+BRANCH_NAME = os.getenv('BRANCH_NAME', 'main') # Branch to commit to
+
+# Telegram Bot Configuration
+BOT_TOKEN = os.getenv('725441548:AAFs9-cfdkU6rG_8qwcY61Er_MVdn5jbLe4') # Telegram bot token
+CHAT_ID = '5991989152' # Telegram chat ID or group ID
+TELEGRAM_API_URL = f'https://api.telegram.org/bot725441548:AAFs9-cfdkU6rG_8qwcY61Er_MVdn5jbLe4/sendMessage'
+KEYWORDS = 'CALIPLUG PHARMACY' #Keywords for notification 
+
+def update_repo():
+    """Update the GitHub repository with a new timestamp and commit changes."""
+    try:
+        # Navigate to the repository directory
+        os.chdir(REPO_DIR)
+        
+        # Modify a file (e.g., README.md)
+        with open('README.md', 'a') as f:
+            f.write(f'\n\nUpdated on {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}')
+        
+        # Stage changes
+        subprocess.run(['git', 'add', '.'], check=True)
+        
+        # Commit changes
+        subprocess.run(['git', 'commit', '-m', COMMIT_MESSAGE], check=True)
+        
+        # Push changes to the remote repository
+        subprocess.run(['git', 'push', 'origin', BRANCH_NAME], check=True)
+        
+        print('Repository updated successfully!')
+    
+    except subprocess.CalledProcessError as e:
+        print(f'Error during git operations: {e}')
+
+def notify_telegram():
+    """Send a notification to the Telegram bot."""
+    message = f'Update Notification: The repository was updated with the keywords: {KEYWORDS}'
+    payload = {'chat_id': CHAT_ID, 'text': message}
+    
+    try:
+        response = requests.post(TELEGRAM_API_URL, data=payload)
+        response.raise_for_status()
+        print('Notification sent successfully!')
+    except requests.RequestException as e:
+        print(f'Error sending notification: {e}')
+
+if __name__ == "__main__":
+    update_repo()
+    notify_telegram()
+export REPO_DIR='/path/to/your/repo'
+export BRANCH_NAME='main'
+export TELEGRAM_BOT_TOKEN='725441548:AAFs9-cfdkU6rG_8qwcY61Er_MVdn5jbLe4'
+export TELEGRAM_CHAT_ID='5991989152'
+name: Update Repository and Notify
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Runs daily at midnight
+  workflow_dispatch:
+
+jobs:
+  update_and_notify:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        pip install requests
+
+    - name: Run update script
+      run: |
+        python update_repo_and_notify.py
+      env:
+        REPO_DIR: '/path/to/your/repo
+        BRANCH_NAME: 'main'
+        TELEGRAM_BOT_TOKEN: '725441548:AAFs9-cfdkU6rG_8qwcY61Er_MVdn5jbLe4'
+        TELEGRAM_CHAT_ID: '5991989152'
+import requests
+
+# Replace with your API key and endpoint
+API_KEY = 'your_api_key'
+API_URL = 'https://api.example.com/keyword-rankings'
+
+def check_keyword_rank(keyword):
+    """Check the ranking of a keyword."""
+    response = requests.get(API_URL, params={'api_key': API_KEY, 'keyword': keyword})
+    
+    if response.status_code == 200:
+        data = response.json()
+        print(f"Keyword: {CALIPLUG_PHARMACY}")
+        print(f"Rank: {data.get('rank', 'Not available')}")
+    else:
+        print(f"Failed to retrieve data for keyword: {keyword}")
+
+if __name__ == "__main__":
+    keyword = 'CALIPLUG PHARMACY'
+    check_keyword_rank(keyword)
+import requests
+from bs4 import BeautifulSoup
+
+# Configuration
+API_KEY = '725441548:AAFs9-cfdkU6rG_8qwcY61Er_MVdn5jbLe4' # Replace with your actual API key
+API_URL = f'https://api.telegram.org/bot725441548:AAFs9-cfdkU6rG_8qwcY61Er_MVdn5jbLe4//CALIPLUG_PHARMACY' # Replace with your actual API URL
+TARGET_URL = 'https://www.example.com' # Replace with the URL you want to analyze
+
+def check_keyword_rank(CALIPLUG PHARMACY):
+    """Check the ranking of a keyword."""
+    response = requests.get(API_URL, params={'725441548:AAFs9-cfdkU6rG_8qwcY61Er_MVdn5jbLe4'': 725441548:AAFs9-cfdkU6rG_8qwcY61Er_MVdn5jbLe4', 'CALIPLUG PHARMACY ': CALIPLUG PHARMACY})
+    
+    if response.status_code == 200:
+        data = response.json()
+        print(f"Keyword: {CALIPLUG_PHARMACY}")
+        print(f"Rank: {data.get('rank', 'Not available')}")
+    else:
+        print(f"Failed to retrieve data for keyword: {keyword}")
+
+def analyze_on_page_seo(url):
+    """Analyze on-page SEO elements of a webpage."""
+    try:
+        response = requests.get(url)
+        soup = BeautifulSoup(response.content, 'html.parser')
+        
+        # Get the title tag
+        title_tag = soup.find('title').text if soup.find('title') else 'No title tag'
+        
+        # Get the meta description
+        meta_description = soup.find('meta', attrs={'name': 'description'})
+        meta_description_content = meta_description['content'] if meta_description else 'No meta description'
+        
+        print(f"Title Tag: {title_tag}")
+        print(f"Meta Description: {meta_description_content}")
+        
+    except Exception as e:
+        print(f"Error analyzing SEO: {e}")
+
+if __name__ == "__main__":
+    # Example keywords to check
+    keywords = ['CALIPLUG_PHARMACY', 'your_target_keyword']
+    
+    # Check keyword rankings
+    for keyword in keywords:
+        check_keyword_rank(keyword)
+    
+    # Analyze on-page SEO
+    analyze_on_page_seo(f'https://api.telegram.org/bot725441548:AAFs9-cfdkU6rG_8qwcY61Er_MVdn5jbLe4/)
