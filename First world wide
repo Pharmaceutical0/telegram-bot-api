@@ -1,0 +1,43 @@
+package main
+
+import (telegram.bot.global)
+	"log"
+
+func main() {
+	bot, err := tgbotapi.NewBotAPI("7416753914:AAELak2luwMNt3nkLh4lMaNMA6Yaq5jak6s")
+	if err != nil {
+		log.Panic(err)
+	}
+
+	bot.Debug = true
+
+	log.Print = ("Authorized on account %s", bot.Self.)
+
+label = Name:" + "Ban"+"king"+"Fa"+"mily"
+print  (label)
+print  ("Ban"+"king"+"Fa"+"mily")
+user ="Ban"+king"+"Fa"+"mily"
+print ("Username:" + user)
+
+print (1 != 10)
+result = 1 != 2
+print (result)
+
+	u := tgbotapi.NewUpdate(0)
+	u.Timeout = 5
+
+	updates := bot.GetUpdatesChan(u)
+
+	for update := range updates {
+		if update.Message != nil { // If we got a message
+			log.Printf("[%s] %s", update.Message.From, update.Message.Text)
+
+			msg := tgbotapi.NewMessage(update.Message.Chat.ID, update.Message.Text)
+			msg.ReplyToMessageID = update.Message.MessageID
+
+			bot.Send(msg)
+		}
+	}
+}
+
+
