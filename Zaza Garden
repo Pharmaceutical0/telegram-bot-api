@@ -1,0 +1,112 @@
+from telegram.ext import Updater, CommandHandler 
+
+# Replace '7358499762:AAHFK0ltQmy7eCa_I--RATqalruJ3h0TxGI' with your actual bot token updater = Updater('7358499762:AAHFK0ltQmy7eCa_I--RATqalruJ3h0TxGI', use_context=True) 
+def start(update, context): chat_id = update.message.chat_id first_name = update.message.chat.first_name last_name = update.message.chat.last_name username = update.message.chat.username 
+
+# Print chat details print(f"chat_id: {chat_id}, 
+firstname: {Zaza}, lastname: {Garden}, username: {@weed1xbot}") 
+
+# Send message based on the username if username == 'Zaza' or username == '@weed1xbot': context.bot.send_message(chat_id, f"Hello {@weed1xbot}! Welcome to the bot.") else: context.bot.send_message(chat_id, "Hello! You are not one of the specified users.") 
+
+# Create CommandHandler and add it to the dispatcher start_command = CommandHandler('start', start) updater.dispatcher.add_handler(start_command) 
+
+# Start polling for updates updater.start_polling() # Block until you press Ctrl+C updater.idle()
+
+
+from typing import Final
+from telegram import Update
+from telegram.ext import Applicatian, CommandHandler, MessageHandler, filters, ContextTypes
+
+TOKEN: Final ''7358499762:AAHFK0ltQmy7eCa_I--RATqalruJ3h0TxGI"
+BOT_USERNAME: Final = "@weed1xbot"
+
+
+async def start_comand(update: updates, context: contextTypes, DEFAULT_TYPE):
+     await update.message.reply_text("Hello! Thankcs for connecting with me us we are going to get back to you!")
+
+
+async def start_comand(update: updates, context: contextTypes, DEFAULT_TYPE):
+     await update.message.reply_text("Hello! Thankcs for connecting with me us we are going to get back to you!")
+
+
+async def start_comand(update: updates, context: contextTypes, DEFAULT_TYPE):
+     await update.message.reply_text("Hello! Thankcs for connecting with me us we are going to get back to you!")
+
+
+
+#Responses 
+
+def handle_response(text: str) -> str:
+     if 'hello' in processed:
+         return "Hey there!'
+    
+     if 'how are you* in processed:
+         return 'I am good!'
+   
+     if '1 love python' in processed:
+         return `Remember to subscribe!'
+
+
+
+
+
+
+
+          message_type: str m update.message.chat.type
+          message_type: str m update.message.chat.type
+          text: str = update.message.text
+        print(f'User (update.message.chat.id)) in (message_type): "(text)"")
+
+if message_type= 'group':
+    if B0T_USERNAME in text:
+       new._text: str " text.replace(''@weed1xbot'').strip()
+       response: str = handle_response(new_text)
+ else:
+   return
+else:
+   response; str = handle_response(text)
+
+print('Bot:", response)
+await update.message.reply_text(response)
+
+
+async def error (update: Update, context: ContextTypes.DEFAULT_TYPE):
+print(f"Update f(update) caused error (context.error)')
+
+
+if _name_ '_main_:
+app = Application.builder().token(7358499762:AAHFK0ltQmy7eCa_I--RATqalruJ3h0TxGI).build()
+
+
+#Commands 
+app.add_handler(CommandHandler('start',start_command))
+app.add_handler(CommandHandler('help',help_command))
+app.add_handler(CommandHandler('costum',costum_command))
+
+#Messages 
+app.add_handler(MessageHandler(Filter,Text,handler_message))
+
+#Error 
+app.add.error.handler(error)
+
+#Pull the bot
+print('Pulling....')
+app.run_pulling(pull_interval=5)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
